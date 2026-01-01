@@ -1,0 +1,20 @@
+# Data & Datasets
+/data/
+/datasets/
+*.zip
+*.csv
+*.json
+
+# Python & IDE
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.vscode/
+.idea/
+.env
+.venv/
+env/
+
+
+.DS_Store
+Thumbs.db
