@@ -74,9 +74,34 @@ def detect_and_predict_emotions(image, model, device):
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
     
     img_cv2 = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
-    gray = cv2.cvtColor(img_cv2, cv2.COLOR_BGR2GRAY)
 
-    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
+    height, width = img_cv2.shape[:2]
+    min_dimension = min(height, width)
+    if min_dimension < 300:
+        scale_factor = 300 / min_dimension
+        new_width = int(width * scale_factor)
+        new_height = int(height * scale_factor)
+        img_cv2 = cv2.resize(img_cv2, (new_width, new_height), interpolation=cv2.INTER_CUBIC)
+    
+    gray = cv2.cvtColor(img_cv2, cv2.COLOR_BGR2GRAY)
+    
+    gray = cv2.equalizeHist(gray)
+
+    faces = face_cascade.detectMultiScale(
+        gray, 
+        scaleFactor=1.05,
+        minNeighbors=3,
+        minSize=(20, 20),
+        flags=cv2.CASCADE_SCALE_IMAGE
+    )
+    
+    if len(faces) == 0:
+        faces = face_cascade.detectMultiScale(
+            gray, 
+            scaleFactor=1.03,
+            minNeighbors=2,
+            minSize=(15, 15)
+        )
     
     if len(faces) == 0:
         return None, "No faces detected in the image"
@@ -127,7 +152,15 @@ class EmotionVideoProcessor(VideoProcessorBase):
         img = frame.to_ndarray(format="bgr24")
         
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        faces = self.face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5)
+        gray = cv2.equalizeHist(gray)
+        
+        faces = self.face_cascade.detectMultiScale(
+            gray, 
+            scaleFactor=1.05, 
+            minNeighbors=3,
+            minSize=(20, 20),
+            flags=cv2.CASCADE_SCALE_IMAGE
+        )
         
         for (x, y, w, h) in faces:
             face_roi = img[y:y+h, x:x+w]
