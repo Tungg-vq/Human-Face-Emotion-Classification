@@ -1,6 +1,14 @@
-# Facial Emotion Recognition Web App
+# Human Face Emotion Classification
 
-A web application that uses Deep Learning to recognize emotions from facial images.
+A Deep Learning project for recognizing emotions from facial images.
+
+## Introduction
+
+A web application that uses a trained CNN (Convolutional Neural Network) model to classify 5 emotions: Angry, Fear, Happy, Sad, and Surprise.
+
+## Dataset
+
+Dataset link: https://www.kaggle.com/datasets/samithsachidanandan/human-face-emotions
 
 ## Features
 
@@ -12,23 +20,22 @@ A web application that uses Deep Learning to recognize emotions from facial imag
 
 ## Installation
 
-### Step 1: Clone repository (if not already done)
+### Step 1: Download source code
+1. Download the project ZIP file
+2. Extract to your desired folder:
 ```bash
-git clone <repository-url>
 cd Human-Face-Emotion-Classification
 ```
 
 ### Step 2: Install required libraries
 ```bash
-pip install -r requirements_webapp.txt
 pip install -r requirements.txt
 ```
 
+### Step 3: Verify model file
+Ensure the file `model/best_model_acc_final.pth` exists in the project directory.
 
-### Step 3: Ensure model file exists
-Check that the file `model/best_model_acc_final.pth` exists.
-
-## Running the Application
+## Running the Web Application
 
 Run the following command in terminal:
 
@@ -69,12 +76,23 @@ The application will automatically open in your browser at: `http://localhost:85
 ```
 Human-Face-Emotion-Classification/
 ├── app.py                          # Main web app file
+├── evaluate.py                     # Model evaluation file
 ├── requirements_webapp.txt         # Web app dependencies
-├── README_WEBAPP.md               # This file
+├── requirements.txt                # Project dependencies
+├── README_WEBAPP.md               # Web app documentation
+├── README.md                      # This file
 ├── model/
 │   ├── best_model_acc_final.pth   # Trained model
+│   ├── best_model_loss.pth        # Model checkpoint
+│   ├── model.py                   # Model architecture definition
+│   ├── inference.py               # Inference code
 │   └── training.ipynb             # Training notebook
-└── data/                          # Training data (if any)
+└── test/                          # Test data
+    ├── angry/
+    ├── fear/
+    ├── happy/
+    ├── sad/
+    └── surprise/
 ```
 
 ## Customization
@@ -133,3 +151,5 @@ All contributions are welcome! Please create a Pull Request or open an Issue.
 MIT License
 
 ---
+
+**Developed with PyTorch and Streamlit**
