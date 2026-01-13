@@ -1,100 +1,100 @@
-# 🎭 Web App Nhận diện Cảm xúc Khuôn mặt
+# Facial Emotion Recognition Web App
 
-Ứng dụng web sử dụng Deep Learning để nhận diện cảm xúc từ khuôn mặt trong ảnh.
+A web application that uses Deep Learning to recognize emotions from facial images.
 
-## 🌟 Tính năng
+## Features
 
-- ✅ Tự động phát hiện khuôn mặt trong ảnh
-- ✅ Nhận diện 5 cảm xúc: Tức giận, Sợ hãi, Vui vẻ, Buồn bã, Ngạc nhiên
-- ✅ Hiển thị độ tin cậy của mỗi dự đoán
-- ✅ Giao diện thân thiện, dễ sử dụng
-- ✅ Hỗ trợ nhiều khuôn mặt trong một ảnh
+- Automatic face detection in images
+- Recognition of 5 emotions: Angry, Fear, Happy, Sad, Surprise
+- Display confidence level for each prediction
+- User-friendly interface
+- Support for multiple faces in a single image
 
-## 🚀 Cài đặt
+## Installation
 
-### Bước 1: Clone repository (nếu chưa có)
+### Step 1: Clone repository (if not already done)
 ```bash
 git clone <repository-url>
 cd Human-Face-Emotion-Classification
 ```
 
-### Bước 2: Cài đặt các thư viện cần thiết
+### Step 2: Install required libraries
 ```bash
 pip install -r requirements_webapp.txt
 ```
 
-Hoặc nếu bạn muốn dùng file requirements.txt gốc:
+Or if you want to use the original requirements.txt file:
 ```bash
 pip install -r requirements.txt
 pip install streamlit
 ```
 
-### Bước 3: Đảm bảo có file model
-Kiểm tra xem file `model/best_model_acc_final.pth` đã tồn tại hay chưa.
+### Step 3: Ensure model file exists
+Check that the file `model/best_model_acc_final.pth` exists.
 
-## 🎮 Chạy ứng dụng
+## Running the Application
 
-Chạy lệnh sau trong terminal:
+Run the following command in terminal:
 
 ```bash
 streamlit run app.py
 ```
 
-Ứng dụng sẽ tự động mở trong trình duyệt tại địa chỉ: `http://localhost:8501`
+The application will automatically open in your browser at: `http://localhost:8501`
 
-## 📖 Hướng dẫn sử dụng
+## Usage Guide
 
-1. **Tải ảnh lên**: Click vào nút "Browse files" để chọn ảnh từ máy tính
-2. **Xem kết quả**: Ứng dụng sẽ tự động:
-   - Phát hiện tất cả khuôn mặt trong ảnh
-   - Vẽ khung màu quanh mỗi khuôn mặt
-   - Hiển thị cảm xúc và độ tin cậy
-3. **Chi tiết**: Mở rộng từng khuôn mặt để xem thông tin chi tiết
+1. **Upload image**: Click the "Browse files" button to select an image from your computer
+2. **View results**: The application will automatically:
+   - Detect all faces in the image
+   - Draw colored boxes around each face
+   - Display emotion and confidence level
+3. **Details**: Expand each face to view detailed information
 
-## 🎨 Các cảm xúc được nhận diện
+## Recognized Emotions
 
-| Cảm xúc | Màu sắc | Icon |
-|---------|---------|------|
-| Tức giận (Angry) | 🔴 Đỏ | 😠 |
-| Sợ hãi (Fear) | 🟣 Tím | 😨 |
-| Vui vẻ (Happy) | 🟢 Xanh lá | 😊 |
-| Buồn bã (Sad) | 🔵 Xanh dương | 😢 |
-| Ngạc nhiên (Surprise) | 🟠 Cam | 😲 |
+| Emotion | Color | Description |
+|---------|-------|-------------|
+| Angry | Red | Anger emotion |
+| Fear | Purple | Fear emotion |
+| Happy | Green | Happy emotion |
+| Sad | Blue | Sad emotion |
+| Surprise | Orange | Surprise emotion |
 
-## 🛠️ Công nghệ sử dụng
+## Technology Stack
 
-- **PyTorch**: Framework Deep Learning
-- **Streamlit**: Framework Web App
-- **OpenCV**: Xử lý ảnh và phát hiện khuôn mặt
-- **CNN**: Mạng Neural tích chập tùy chỉnh
+- **PyTorch**: Deep Learning framework
+- **Streamlit**: Web App framework
+- **OpenCV**: Image processing and face detection
+- **CNN**: Custom Convolutional Neural Network
 
-## 📁 Cấu trúc thư mục
+## Directory Structure
 
 ```
 Human-Face-Emotion-Classification/
-├── app.py                          # File chính của web app
-├── requirements_webapp.txt         # Dependencies cho web app
-├── README_WEBAPP.md               # File này
+├── app.py                          # Main web app file
+├── requirements_webapp.txt         # Web app dependencies
+├── README_WEBAPP.md               # This file
 ├── model/
-│   ├── best_model_acc_final.pth   # Model đã train
-│   └── training.ipynb             # Notebook training
-└── data/                          # Dữ liệu training (nếu có)
+│   ├── best_model_acc_final.pth   # Trained model
+│   └── training.ipynb             # Training notebook
+└── data/                          # Training data (if any)
 ```
 
-## ⚙️ Tùy chỉnh
+## Customization
 
-### Thay đổi cổng mặc định
+### Change default port
 ```bash
 streamlit run app.py --server.port 8080
 ```
 
-### Chạy ở chế độ production
+### Run in production mode
 ```bash
 streamlit run app.py --server.headless true
 ```
 
-### Cấu hình nâng cao
-Tạo file `.streamlit/config.toml`:
+### Advanced configuration
+Create a `.streamlit/config.toml` file:
 ```toml
 [server]
 port = 8501
@@ -107,35 +107,33 @@ secondaryBackgroundColor = "#F0F2F6"
 textColor = "#262730"
 ```
 
-## 🐛 Xử lý sự cố
+## Troubleshooting
 
-### Lỗi: "Module not found"
+### Error: "Module not found"
 ```bash
 pip install --upgrade -r requirements_webapp.txt
 ```
 
-### Lỗi: "Model not found"
-Đảm bảo file model nằm đúng vị trí: `model/best_model_acc_final.pth`
+### Error: "Model not found"
+Ensure the model file is in the correct location: `model/best_model_acc_final.pth`
 
-### Lỗi: "No faces detected"
-- Đảm bảo ảnh có chứa khuôn mặt rõ ràng
-- Khuôn mặt nên nhìn thẳng hoặc nghiêng nhẹ
-- Ánh sáng đủ để nhận diện
+### Error: "No faces detected"
+- Ensure the image contains clear faces
+- Faces should be frontal or slightly tilted
+- Sufficient lighting for recognition
 
-## 📝 Ghi chú
+## Notes
 
-- Model hoạt động tốt nhất với ảnh khuôn mặt rõ nét
-- Hỗ trợ GPU nếu có (tự động phát hiện CUDA)
-- Có thể xử lý nhiều khuôn mặt trong một ảnh
+- Model works best with clear facial images
+- GPU support if available (automatic CUDA detection)
+- Can process multiple faces in one image
 
-## 🤝 Đóng góp
+## Contributing
 
-Mọi đóng góp đều được chào đón! Hãy tạo Pull Request hoặc mở Issue.
+All contributions are welcome! Please create a Pull Request or open an Issue.
 
-## 📄 License
+## License
 
 MIT License
 
 ---
-
-**Phát triển với ❤️ bằng PyTorch và Streamlit**
