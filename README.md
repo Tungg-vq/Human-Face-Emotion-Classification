@@ -139,8 +139,6 @@ Ensure the model file is in the correct location: `model/best_model_acc_final.pt
 ## Notes
 
 - Model works best with clear facial images
-- GPU support if available (automatic CUDA detection)
-- Can process multiple faces in one image
 
 ## Contributing
 
