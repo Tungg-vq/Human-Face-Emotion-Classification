@@ -21,13 +21,9 @@ cd Human-Face-Emotion-Classification
 ### Step 2: Install required libraries
 ```bash
 pip install -r requirements_webapp.txt
+pip install -r requirements.txt
 ```
 
-Or if you want to use the original requirements.txt file:
-```bash
-pip install -r requirements.txt
-pip install streamlit
-```
 
 ### Step 3: Ensure model file exists
 Check that the file `model/best_model_acc_final.pth` exists.
