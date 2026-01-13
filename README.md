@@ -71,29 +71,6 @@ The application will automatically open in your browser at: `http://localhost:85
 - **OpenCV**: Image processing and face detection
 - **CNN**: Custom Convolutional Neural Network
 
-## Directory Structure
-
-```
-Human-Face-Emotion-Classification/
-├── app.py                          # Main web app file
-├── evaluate.py                     # Model evaluation file
-├── requirements_webapp.txt         # Web app dependencies
-├── requirements.txt                # Project dependencies
-├── README_WEBAPP.md               # Web app documentation
-├── README.md                      # This file
-├── model/
-│   ├── best_model_acc_final.pth   # Trained model
-│   ├── best_model_loss.pth        # Model checkpoint
-│   ├── model.py                   # Model architecture definition
-│   ├── inference.py               # Inference code
-│   └── training.ipynb             # Training notebook
-└── test/                          # Test data
-    ├── angry/
-    ├── fear/
-    ├── happy/
-    ├── sad/
-    └── surprise/
-```
 
 ## Customization
 
@@ -125,7 +102,7 @@ textColor = "#262730"
 
 ### Error: "Module not found"
 ```bash
-pip install --upgrade -r requirements_webapp.txt
+pip install --upgrade -r requirements.txt
 ```
 
 ### Error: "Model not found"
